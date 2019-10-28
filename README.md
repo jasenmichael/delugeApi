@@ -9,35 +9,42 @@
 to use 
 ```js
 npm run start
+```
+go to see list of routes
+http://localhost:8122/   note: proxy api default port 8122 - deluge default port is 8112 
+don't get confuzed ;)
 
-// go to see list of routes
-'http://localhost:8122/'  // note: proxy api default port 8122 - deluge default port is 8112 don't get confuzed ;)
+make POST request with options in the body
 
-
-// make POST request with options in the body
-
-// login - returns token -use in subsequent requests
-'http://localhost:8122/login'
+login - returns token -use in subsequent requests
+http://localhost:8122/login
+```js
 body: {
-    url: 'http://localhost:8122/json',   // deluge webApi url
+    url: 'http://delugeBox:8122/json',   // deluge webApi url
     password: 'deluge'
 }
+```
 
-// periodically check session, if not valid then you must relogin and get a new token
-'http://localhost:8122/check_session'
+periodically check session, if not valid then you must relogin and get a new token
+http://localhost:8122/check_session
+```js
 body: {
-    url: 'http://localhost:8112/json',   // deluge webApi url
+    url: 'http://delugeBox:8112/json',   // deluge webApi url
     token
 }
+```
 
 
-'http://localhost:8122/list_methods'
+http://localhost:8122/list_methods
+```js
 body: {
     url: 'http://delugeBox:8112/json',   // deluge webApi url
 }
+```
 
-
-'http://localhost:8122/deluge_method'
+http://localhost:8122/deluge_method
+use any method from the list_methods
+```js
 body: {   
     url: 'http://delugeBox:8112/json',   // deluge webApi url
     token,
@@ -75,5 +82,9 @@ body: {
 }
 
 ```
+
+example body for methods in test/index.json
+I used the default deluge webui and inspected the network trafic to see request body, you can use them body structure exactly the way - also adding url, password||token to the body.
+
 ![postman screenshot](./screenshot.png)
 
