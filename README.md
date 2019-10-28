@@ -8,46 +8,72 @@
 
 to use 
 ```js
-const delugeApi = require('delugeApi')
+npm run start
 
-// use with
-// delugeMethod(url, method, params, id, password, cookie)
-
-const url = 'http://localhost:8112/json'
-const password = 'deluge'
-let id = 0
-
-let cookie = delugeApi.getCookie(url, password, id)
-    .then(cookie => {
-        // retun cookie or do another method using cookie
-        console.log('use me in header for requests:', cookie)
-        return cookie
-    }).catch(err => {
-        console.error(err)
-    })
+// go to see list of routes
+'http://localhost:8122/'  // note: proxy api default port 8122 - deluge default port is 8112 don't get confuzed ;)
 
 
-// get list of deluge webapi plugin methods
-setTimeout(() => {
-    delugeApi.listMethods(url).then(methodList => {
-        console.log(methodList)
-    })
-}, 5000);
+// make POST request with options in the body
 
-// then use a method
-// see test.json for exapmple params and methods, The webApi documentation is lacking, so using the actual "Deluge WebUi" and used the browser dev tools
-// I could watch network traffic. There I could see request body for each request, so I just went through the actions, add, pause, start, remove, etc..
-let method = "web.update_ui"
-let params = [
-    ["queue", "name", "total_wanted", "state", "progress", "num_seeds", "total_seeds", "num_peers", "total_peers", "download_payload_rate", "upload_payload_rate", "eta", "ratio", "distributed_copies", "is_auto_managed", "time_added", "tracker_host", "save_path", "total_done", "total_uploaded", "max_download_speed", "max_upload_speed", "seeds_peers_ratio", "label"], {}
-]
+// login - returns token -use in subsequent requests
+'http://localhost:8122/login'
+body: {
+    url: 'http://localhost:8122/json',   // deluge webApi url
+    password: 'deluge'
+}
 
-// store your cookie how ever you like once and reuse, using setTimeout here just for simple example.
-setTimeout(() => {
-    delugeApi.delugeMethod(url, method, params, id, password, '_session_id=6ec707e1dab55d2044e21b57740f8f812191').then(res => {
-        console.log(res)
-    })
-}, 200)
+// periodically check session, if not valid then you must relogin and get a new token
+'http://localhost:8122/check_session'
+body: {
+    url: 'http://localhost:8112/json',   // deluge webApi url
+    token
+}
+
+
+'http://localhost:8122/list_methods'
+body: {
+    url: 'http://delugeBox:8112/json',   // deluge webApi url
+}
+
+
+'http://localhost:8122/deluge_method'
+body: {   
+    url: 'http://delugeBox:8112/json',   // deluge webApi url
+    token,
+    method: "web.update_ui",
+    params: [
+        [
+            "queue",
+            "name",
+            "total_wanted",
+            "state",
+            "progress",
+            "num_seeds",
+            "total_seeds",
+            "num_peers",
+            "total_peers",
+            "download_payload_rate",
+            "upload_payload_rate",
+            "eta",
+            "ratio",
+            "distributed_copies",
+            "is_auto_managed",
+            "time_added",
+            "tracker_host",
+            "save_path",
+            "total_done",
+            "total_uploaded",
+            "max_download_speed",
+            "max_upload_speed",
+            "seeds_peers_ratio",
+            "label"
+        ],
+        {}
+    ],
+    "id": 0
+}
+
 ```
-
+![postman screenshot](./screenshot.png)
 
