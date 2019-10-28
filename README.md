@@ -7,7 +7,10 @@
 ##### Solution, a simple proxy using Node and Axios - that exposes all Deluge webApi methods.
 
 to use 
-```js
+```bash
+git clone https://github.com/jasenmichael/delugeApiProxy.git
+cd delugeApiProxy
+npm run build
 npm run start
 ```
 go to see list of routes
