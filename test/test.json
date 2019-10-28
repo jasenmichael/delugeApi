@@ -1,0 +1,121 @@
+[
+
+    // login
+    {
+        "method": "auth.login",
+        "params": [
+            "deluge"
+        ],
+        "id": 0
+    },
+
+    // list deluge webapi methods
+    {
+        "method": "system.listMethods",
+        "params": [],
+        "id": 0
+    },
+
+    // check authenticated
+    {
+        "method": "auth.check_session",
+        "params": [],
+        "id": 0
+    },
+
+    // update ui data
+    {
+        "method": "web.update_ui",
+        "params": [
+            ["queue", "name", "total_wanted", "state", "progress", "num_seeds", "total_seeds", "num_peers", "total_peers", "download_payload_rate", "upload_payload_rate", "eta", "ratio", "distributed_copies", "is_auto_managed", "time_added", "tracker_host", "save_path", "total_done", "total_uploaded", "max_download_speed", "max_upload_speed", "seeds_peers_ratio", "label"], {}
+        ],
+        "id": 0
+    },
+
+    // get events??
+    // {
+    //     "method": "web.get_events",
+    //     "params": [],
+    //     "id": 0
+    // },
+
+    // get torrent magnet info
+    {
+        "method": "web.get_magnet_info",
+        "params": ["magnet:?xt=urn:btih:11FC63B8964C919485876E390CE79E5B2B2FB2F9&dn=Batwoman.S01E01.HDTV.x264-PHOENiX%5BTGx%5D+%E2%AD%90&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.si%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce"],
+        "id": 0
+    },
+
+    // add torrent magnet
+    {
+        "method": "web.add_torrents",
+        "params": [
+            [{
+                "path": "magnet:?xt=urn:btih:11FC63B8964C919485876E390CE79E5B2B2FB2F9&dn=Batwoman.S01E01.HDTV.x264-PHOENiX%5BTGx%5D+%E2%AD%90&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.si%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce",
+                "options": {
+                    "file_priorities": [],
+                    "add_paused": false,
+                    "compact_allocation": false,
+                    "download_location": "/data/.incomplete",
+                    "move_completed": true,
+                    "move_completed_path": "/data",
+                    "max_connections": -1,
+                    "max_download_speed": -1,
+                    "max_upload_slots": -1,
+                    "max_upload_speed": -1,
+                    "prioritize_first_last_pieces": true
+                }
+            }]
+        ],
+        "id": 0
+    },
+
+    // register event listener?? plugin disabled event
+    {
+        "method": "web.register_event_listener",
+        "params": ["PluginDisabledEvent"],
+        "id": 0
+    },
+
+    // register event listener?? plugin enabled event
+    {
+        "method": "web.register_event_listener",
+        "params": ["PluginEnabledEvent"],
+        "id": 0
+    },
+
+    // web connected?
+    {
+        "method": "web.connected",
+        "params": [],
+        "id": 0
+    },
+
+    // list all plugin info
+    {
+        "method": "web.get_plugins",
+        "params": [],
+        "id": 0
+    },
+
+    // get torrent list status
+    {
+        "method": "web.get_torrent_status",
+        "params": ["11fc63b8964c919485876e390ce79e5b2b2fb2f9", ["total_done", "total_payload_download", "total_uploaded", "total_payload_upload", "next_announce", "tracker_status", "num_pieces", "piece_length", "is_auto_managed", "active_time", "seeding_time", "seed_rank", "queue", "name", "total_wanted", "state", "progress", "num_seeds", "total_seeds", "num_peers", "total_peers", "download_payload_rate", "upload_payload_rate", "eta", "ratio", "distributed_copies", "is_auto_managed", "time_added", "tracker_host", "save_path", "total_done", "total_uploaded", "max_download_speed", "max_upload_speed", "seeds_peers_ratio"]],
+        "id": 0
+    }
+
+    // add torrent http
+    // add torrent file
+
+
+    // start torrent
+
+
+
+    // pause torrent
+    // remove torrent
+    // queue - up, down, top, bottom
+    // label torrent
+
+]
