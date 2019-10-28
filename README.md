@@ -10,7 +10,6 @@ to use
 ```bash
 git clone https://github.com/jasenmichael/delugeApiProxy.git
 cd delugeApiProxy
-npm run build
 npm run start
 ```
 go to see list of routes
