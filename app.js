@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 8122
 const cors = require('cors');
 const {
     delugeApi
@@ -63,7 +63,7 @@ app.post('/list_methods', async (req, res) => {
         })
     }
     const methodList = await delugeApi.delugeMethod(url, 'system.listMethods', [], 1).then(res => {
-        return res
+        return res.result
     })
     res.json(methodList)
 })
