@@ -14,7 +14,7 @@ npm run start
 ```
 go to see list of routes
 http://localhost:8122/   note: proxy api default port 8122 - deluge default port is 8112 
-don't get confuzed ;)
+don't get confused ;)
 
 make POST request with options in the body
 
